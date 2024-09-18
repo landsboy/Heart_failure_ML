@@ -43,7 +43,7 @@ After we have downloaded the data from the database, we will load it and perform
 
 ```{r}
 # Loading the data:
-data <- read.csv("data1.csv")
+data <- read.csv("patients_data.csv")
 # Checking whether there are duplicates in the data:
 dim(data)[1]
 dim(unique(data))[1]
@@ -210,7 +210,7 @@ library(umap)
 This code reads in a dataset, removes or replaces missing or infinite values, and retains a variable of interest, 'death'. The data is then normalized, and Principal Component Analysis (PCA) is conducted to reduce the dimensionality, capturing the most variance in the first two components. These components are then plotted in a scatterplot, with points colored according to the 'death' variable. The purpose of the code is to simplify the dataset and visualize it in a way that can easily highlight patterns related to 'death'. We can see the based on the best PC1 and PC2 we didn't get a good result and the data can't be represented in 2D. (Same for other PC's we tried).
 
 ```{r include=FALSE}
-data <- read_csv('data1.csv')
+data <- read_csv('patients_data.csv')
 data <- na.omit(data)
 ```
 
@@ -275,7 +275,7 @@ Since, as we have shown, our data is not linearly separated, so we will look for
 
 **Step 6.1: Creating the train and test sets**
 ```{r include=FALSE}
-data <- read_csv('data1.csv')
+data <- read_csv('patients_data.csv')
 data <- na.omit(data)
 ```
 
@@ -358,7 +358,7 @@ As you can see the performance of the algorithm on our data is not good, and for
 **Step 6.3: Decision Tree**
 
 ```{r include=FALSE}
-data <- read_csv('data.csv')
+data <- read_csv('patients_data.csv')
 data <- na.omit(data)
 norn_fonc <- function(x) { return ((x - min(x)) / (max(x) - min(x))) }
 norm_data <- as.data.frame(lapply(data, norn_fonc))
